@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ez Paint</title>
+    <link rel = "stylesheet" href = "styles.css">
+</head>
+<body>
+    <form>
+        <input type = "range" id = "size" name = "size" min = "16" max = "128"  value = "64">
+        <input type = "color" id = "color" name = "color" onchange="updateColor()">
+        <input type = "button" id = "submit" onclick= "createGrid()" value = "Change Size">
+    </form>
+    <div id = "container">
+    </div>
+    <script src = "script.js"></script>
+
+</body>
+</html>
