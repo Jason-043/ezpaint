@@ -1,5 +1,13 @@
 .square {
-    border: 2px dashed grey;
-    width: 30px;
-    height: 30px;
+
+    border-top: 1px solid grey;
+    border-right: 1px solid grey;
+}
+
+#container {
+    border-left: 1px solid grey;
+    border-bottom: 1px solid grey;
+    display: grid;
+    /* grid-template-columns: repeat(16, 30px);
+    grid-template-rows: repeat(16, 30px); */
 }
