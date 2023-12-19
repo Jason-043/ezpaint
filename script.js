@@ -2,23 +2,22 @@ var windowHeight = window.innerHeight
 || document.documentElement.clientHeight
 || document.body.clientHeight;
 
-var windowWidth = window.innerWidth 
-|| document.documentElement.clientWidth
-|| document.body.clientWidth;
-
 var container = document.getElementById("container");
+var currColor;
 
-console.log(windowHeight);
-console.log(windowWidth);
-
-function calculateSizes(){
-    container.width = windowHeight 
+function clearGrid(){
+    pixels = document.getElementsByClassName('square');
+    for(i = 0; i < pixels.length; i++){
+        pixels[i].style.backgroundColor = "white";
+    }
 }
 
 function createGrid(){
     var dimensions = document.getElementById("size").value;
-    var squareDim = windowHeight * .85/dimensions;
+    var squareDim = windowHeight*.85/dimensions;
     container.innerHTML = "";
+    container.style.width = `${windowHeight *.85}px`;
+    container.style.height = `${windowHeight*.85}px`;
     container.style.gridTemplateColumns = `repeat(${dimensions}, ${squareDim}px)`;
     container.style.gridTemplateColumns = `repeat(${dimensions}, ${squareDim}px)`;
     console.log("create Grid");
@@ -33,9 +32,30 @@ function createGrid(){
             container.appendChild(currDiv);
         }
     }
+    draw();
 }
 createGrid();
 function updateColor(){
-    newColor = document.getElementById("color").value;
-    console.log(newColor);
+    currColor = document.getElementById("color").value;
+}
+isMouseDown = false;
+function draw(){
+    pixels = document.getElementsByClassName('square');
+    updateColor();
+    for(let i = 0; i < pixels.length; i++){
+        pixels[i].addEventListener("mouseover", function(){
+            if(isMouseDown){
+                pixels[i].style.backgroundColor = currColor;
+            }
+        })
+        pixels[i].addEventListener("click", function(){
+            pixels[i].style.backgroundColor = currColor;
+        })
+        pixels[i].addEventListener("mousedown", function(){
+            isMouseDown = true;
+        })
+        pixels[i].addEventListener("mouseup", function(){
+            isMouseDown = false;
+        })
+    }
 }
