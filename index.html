@@ -7,7 +7,8 @@
     <link rel = "stylesheet" href = "styles.css">
 </head>
 <body>
-    <input type = "range" id = "size" name = "size" min = "16" max = "100"  value = "16">
+    <p id = "sizeDisplay"></p>
+    <input type = "range" id = "size" name = "size" min = "16" max = "100"  value = "16" onchange = "updateSize()">
     <input type = "color" id = "color" name = "color" onchange="updateColor()">
     <input type = "button" id = "submit" onclick= "createGrid()" value = "Change Size">
     <input type = "button" id = "clear" onclick= "clearGrid()" value = "Clear">

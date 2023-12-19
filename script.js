@@ -12,6 +12,12 @@ function clearGrid(){
     }
 }
 
+function updateSize(){
+    sizeDisplay = document.getElementById("sizeDisplay");
+    dimensions = document.getElementById("size").value;
+    sizeDisplay.innerHTML = `${dimensions}x${dimensions}`;
+}
+updateSize();
 function createGrid(){
     var dimensions = document.getElementById("size").value;
     var squareDim = windowHeight*.85/dimensions;
